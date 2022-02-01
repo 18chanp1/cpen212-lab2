@@ -1,0 +1,34 @@
+Q. At what address (hex) is pwn1 when swallow is running?
+
+
+
+Q. At what address (hex) is pwn2 when swallow is running?
+
+
+
+Q. At what address (hex) is speed when the main212() function inside swallow is running?
+
+
+
+Q. At what address (hex) is the return address when main212() inside swallow is running?
+
+
+
+Q. At what address (hex) is the sequence of instructions "cmp rdx, rdi", "setae al", "ret" found when swallow is running?
+
+
+
+Q. Your analysis of flight1 below
+
+
+
+
+Q. Your analysis of flight2 below
+
+
+
+Q. Your analysis of flight3 below
+
+
+
+
